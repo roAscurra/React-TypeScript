@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FC, FormEvent, useState } from 'react'
 import { Button, Col, Form, Navbar, Row } from 'react-bootstrap'
 import { Prev } from 'react-bootstrap/esm/PageItem';
 

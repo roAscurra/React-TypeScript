@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { CardGift } from '../ui/CardGift/CardGift';
 
 interface IGift {

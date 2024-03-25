@@ -1,4 +1,5 @@
-import { Button, Card } from "react-bootstrap"
+import { FC } from "react";
+import { Card } from "react-bootstrap"
 
 interface IGift {
     urlGift : string,
