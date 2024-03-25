@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { CardGift } from '../ui/CardGift/CardGift';
+import { useAppSelector } from '../../hooks/redux';
 
 interface IGift {
     urlGift : string,
@@ -10,7 +11,10 @@ interface IPropsGiftList {
 }
 
 export const GiftList : FC<IPropsGiftList> = ({ gift }) => {
-  return (
+  const globalGift = useAppSelector((state)=> state.gift);
+  
+  
+    return (
     <div
     style={{
         display : 'grid',

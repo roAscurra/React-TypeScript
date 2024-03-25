@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-// ...
+import giftSlice from '../slices/gift'
 
 export const store = configureStore({
   reducer: {
-   
+   gift : giftSlice
   },
 })
 
