@@ -1,21 +1,21 @@
-import React, { FC, FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Button, Col, Form, Navbar, Row } from 'react-bootstrap'
-import { Prev } from 'react-bootstrap/esm/PageItem';
+import { useAppDispatch } from '../../../hooks/redux';
+import { setGifts } from '../../../redux/slices/gift';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-interface IPropsNavBar {
-    setGift : Function;
-}
-export const NavBar: FC<IPropsNavBar> = ({ setGift }) => {
+
+export const NavBar = () => {
+    const dispatch = useAppDispatch()
     const fetchGift = async (query:string)=>{
         try {
             const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`);
             const data = await response.json();
-            const parseData = data.data.map((el:any)=>({
+            const parseData = data.data.map((el: any)=>({
                 urlGift : el.images.fixed_height.url,
                 title : el.title,
             }));
-            setGift(parseData)
+            dispatch(setGifts(parseData))
         } catch (error) {
             console.warn(error)
         }
