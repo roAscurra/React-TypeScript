@@ -8,7 +8,7 @@ interface IGift {
 }
 
 function App() {
-  const [gift, setGift] = useState<IGift>([]); //estado que contiene el gift
+  const [gift, setGift] = useState<IGift[]>([]); //estado que contiene el gift
 
   return (
     <>

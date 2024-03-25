@@ -1,3 +1,4 @@
+import { Button, Card } from "react-bootstrap"
 
 interface IGift {
     urlGift : string,
@@ -9,9 +10,11 @@ interface IPropsCardGift{
 }
 export const CardGift: FC<IPropsCardGift> = ({ gift }) => {
   return (
-    <div>
-        <img src={gift.urlGift} />
-        <h3>{gift.title}</h3>
-    </div>
-  )
+    <Card style={{ width: '100%' }}>
+        <Card.Img variant="top" src={gift.urlGift} />
+        <Card.Body>
+            <Card.Title>{gift.title}</Card.Title>
+        </Card.Body>
+    </Card>
+  );
 }
