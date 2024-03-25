@@ -3,8 +3,10 @@ import { Button, Col, Form, Navbar, Row } from 'react-bootstrap'
 import { Prev } from 'react-bootstrap/esm/PageItem';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-export const NavBar = () => {
-
+interface IPropsNavBar {
+    setGift : Function;
+}
+export const NavBar: FC<IPropsNavBar> = ({ setGift }) => {
     const fetchGift = async (query:string)=>{
         try {
             const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`);
@@ -13,7 +15,7 @@ export const NavBar = () => {
                 urlGift : el.images.fixed_height.url,
                 title : el.title,
             }));
-            console.log(parseData)
+            setGift(parseData)
         } catch (error) {
             console.warn(error)
         }
