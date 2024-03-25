@@ -9,7 +9,11 @@ export const NavBar = () => {
         try {
             const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${query}&limit=12`);
             const data = await response.json();
-            console.log(data.data)
+            const parseData = data.data.map((el:any)=>({
+                urlGift : el.images.fixed_height.url,
+                title : el.title,
+            }));
+            console.log(parseData)
         } catch (error) {
             console.warn(error)
         }
